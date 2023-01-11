@@ -1,0 +1,30 @@
+{
+  "heroes": [],
+  "filters": [
+    {
+      "type": "all",
+      "text": "Все",
+      "classes": "btn-outline-dark"
+    },
+    {
+      "type": "fire",
+      "text": "Огонь",
+      "classes": "btn-danger"
+    },
+    {
+      "type": "water",
+      "text": "Вода",
+      "classes": "btn-primary"
+    },
+    {
+      "type": "wind",
+      "text": "Воздух",
+      "classes": "btn-success"
+    },
+    {
+      "type": "earth",
+      "text": "Земля",
+      "classes": "btn-secondary"
+    }
+  ]
+}
