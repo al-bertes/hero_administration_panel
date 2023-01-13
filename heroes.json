@@ -1,28 +1,16 @@
 {
   "heroes": [
     {
-      "id": "2275381b-070b-40a9-acee-66571b664d89",
-      "name": "trattt",
-      "description": "asdfas",
-      "element": "wind"
-    },
-    {
-      "id": "903b4a92-30b0-4d1b-85bc-f561882af549",
-      "name": "мама",
-      "description": "все",
-      "element": "earth"
-    },
-    {
-      "id": "c198f251-056e-42a0-a845-1466bd4fdd3a",
-      "name": "Hello",
-      "description": "asdf",
+      "id": "31ce9640-c5b5-4178-8613-fbacc8fdcce3",
+      "name": "asdf",
+      "description": "\nasdf",
       "element": "water"
     },
     {
-      "id": "d6d2b319-7844-4d7b-945a-9549cb2eff2c",
-      "name": "Tima",
-      "description": "фыаыфа фыа",
-      "element": "wind"
+      "id": "6310c1d3-b3d8-478c-93b9-00062ae097ad",
+      "name": "asdf",
+      "description": "asfasfsafasdfsdfd",
+      "element": "fire"
     }
   ],
   "filters": [

@@ -1,21 +1,20 @@
-import { useHttp } from "../../hooks/http.hook";
-import { fetchFilters, setActiveFilter } from "../../actions";
+
+import { filtersActive, fetchFilters } from "./filterSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import classNames from "classnames";
 const HeroesFilters = () => {
-  const {request} = useHttp();
   const dispatch = useDispatch();
   const {filters, activeFilter} = useSelector(state => state.filters);
   useEffect(() => {
-    dispatch(fetchFilters(request))
+    dispatch(fetchFilters())
   }, [])
   const rendereFilters = () => {
     return filters.map(({type, text, classes},index) => {
       const classItem = classNames("btn", classes, {'acitve': type === activeFilter });
     
       return (
-        <button key={index} onClick={() => dispatch(setActiveFilter(type))} className={classItem}>{text}</button>
+        <button key={index} onClick={() => dispatch(filtersActive(type))} className={classItem}>{text}</button>
       )
     })
   }
