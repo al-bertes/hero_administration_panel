@@ -8,7 +8,7 @@ const HeroesAddForm = () => {
   const [name, setName] = useState('');
   const [description, setDesctiption] = useState('');
   const [element, setElement] = useState('');
-  const {filters, activeFilter, activeHeroes} = useSelector(state => state);
+  const {filters} = useSelector(state => state.filters);
   const dispatch = useDispatch();
   const { request } = useHttp();
 
@@ -29,7 +29,6 @@ const HeroesAddForm = () => {
 
   }
 
-  console.log(filters, activeFilter, activeHeroes)
   return (
    
       <form className="border p-4 shadow-lg rounded" onSubmit={hendlerSubmit}>
@@ -71,10 +70,13 @@ const HeroesAddForm = () => {
           </label>
           <select className="form-select" id="element" name="element" as="select" value={element} onChange={(e) => setElement(e.target.value)}>
             <option>Я владею элементом...</option>
-            <option value="fire">Огонь</option>
-            <option value="water">Вода</option>
-            <option value="wind">Ветер</option>
-            <option value="earth">Земля</option>
+            {filters.filter(({type}) => type !== 'all').map(({text, type}, index) => {
+              return (
+                <option key={index} value={type}>{text}</option>
+              )
+            })}
+            
+            
           </select>
         </div>
 

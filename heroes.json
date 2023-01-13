@@ -1,5 +1,30 @@
 {
-  "heroes": [],
+  "heroes": [
+    {
+      "id": "2275381b-070b-40a9-acee-66571b664d89",
+      "name": "trattt",
+      "description": "asdfas",
+      "element": "wind"
+    },
+    {
+      "id": "903b4a92-30b0-4d1b-85bc-f561882af549",
+      "name": "мама",
+      "description": "все",
+      "element": "earth"
+    },
+    {
+      "id": "c198f251-056e-42a0-a845-1466bd4fdd3a",
+      "name": "Hello",
+      "description": "asdf",
+      "element": "water"
+    },
+    {
+      "id": "d6d2b319-7844-4d7b-945a-9549cb2eff2c",
+      "name": "Tima",
+      "description": "фыаыфа фыа",
+      "element": "wind"
+    }
+  ],
   "filters": [
     {
       "type": "all",

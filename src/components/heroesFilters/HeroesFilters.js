@@ -1,14 +1,14 @@
 import { useHttp } from "../../hooks/http.hook";
-import { createFilter, setActiveFilter } from "../../actions";
+import { fetchFilters, setActiveFilter } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import classNames from "classnames";
 const HeroesFilters = () => {
   const {request} = useHttp();
   const dispatch = useDispatch();
-  const {filters ,activeFilter} = useSelector(state => state);
+  const {filters, activeFilter} = useSelector(state => state.filters);
   useEffect(() => {
-    request("http://localhost:3001/filters").then(data => dispatch(createFilter(data)))
+    dispatch(fetchFilters(request))
   }, [])
   const rendereFilters = () => {
     return filters.map(({type, text, classes},index) => {

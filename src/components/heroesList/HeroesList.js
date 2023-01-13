@@ -6,22 +6,35 @@ import {
   heroesFetching,
   heroesFetched,
   heroesFetchingError,
-  deliteHero
+  deliteHero,
+  fetchHeroes,
 } from "../../actions";
 
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from "../spinner/Spinner";
+import { createSelector } from "reselect";
 
 const HeroesList = () => {
-  const { heroesLoadingStatus, activeHeroes } = useSelector((state) => state);
+
+  const filteredHeroesSelector = createSelector(
+    ({filters}) => filters.activeFilter,
+    ({heroes: {heroes}}) => heroes,
+    (filter, heroes) => {
+      if (filter === 'all') {
+        console.log('hh')
+        return heroes;
+      }
+      return heroes.filter(item => item.element === filter);
+    }
+  )
+
+  const felteredHeroes = useSelector(filteredHeroesSelector)
+  const { heroesLoadingStatus } = useSelector((state) => state);
   const dispatch = useDispatch();
   const { request } = useHttp();
 
   useEffect(() => {
-    dispatch(heroesFetching());
-    request("http://localhost:3001/heroes")
-      .then((data) => dispatch(heroesFetched(data)))
-      .catch(() => dispatch(heroesFetchingError()));
+    dispatch(fetchHeroes(request))
 
     // eslint-disable-next-line
   }, []);
@@ -45,8 +58,9 @@ const HeroesList = () => {
     });
   };
 
-  const elements = renderHeroesList(activeHeroes);
+  const elements = renderHeroesList(felteredHeroes);
   return <ul>{elements}</ul>;
 };
 
 export default HeroesList;
+
